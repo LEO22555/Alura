@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol</title>
+</head>
+<body>
+    <h1>Calculo de IMC</h1>
+    <script>
+        function saltarLinea() {
+            document.write("<br>");
+            document.write("<br>");
+            document.write("<br>");
+        }
+        function imprimir(frase){
+            document.write(frase);
+            saltarLinea();
+        }
+        function calcularIMC(peso,altura){
+            return(peso/(altura*altura));
+        }
+        nombre = prompt("como te llamas?")
+        pesoinformado =prompt(nombre + ", cuanto pesas?")
+        alturainformada =prompt(nombre +", cuanto mides?")
+        imcCalculado = calcularIMC(pesoinformado,alturainformada)
+        imprimir(nombre +", su imc calculado es: " + imcCalculado.toFixed(2));
+        if(imcCalculado<18.5){
+            imprimir(nombre + ", tu peso está debajo de lo recomendado")
+        }
+        if(imcCalculado>25 && imcCalculado<30){
+            imprimir(nombre + ", tu peso está en lo normal")
+        }
+        else{
+            imprimir(nombre +", estas cule gordo")
+        }
+            
+
+    </script>
+</body>
+</html>
