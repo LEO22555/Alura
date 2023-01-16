@@ -1,0 +1,15 @@
+<canvas width="600" height="400"> </canvas>
+<script>
+    function dibujarRectangulo(x,y,color,altura){
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "red";
+        pincel.fillRect(x,y,500,altura); 
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(x,y,500,altura);
+    }
+
+dibujarRectangulo(50,50,"green",Math.round(Math.random()*500));
+
+
+</script> 
