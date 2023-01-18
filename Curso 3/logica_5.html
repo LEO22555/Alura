@@ -6,8 +6,12 @@
     pincel.fillStyle = "lightgrey";
     pincel.fillRect(0,0,600,400); 
 
-    function disenharCircunferencia(x,y,radio){
-        pincel.fillStyle = "blue";
+    var radio = 10
+    var xaleatorio;
+    var yaleatorio;
+
+    function disenharCircunferencia(x,y,radio,color){
+        pincel.fillStyle = color;
         pincel.beginPath();
         pincel.arc(x,y,radio,0,2*Math.PI);
         pincel.fill();
@@ -20,21 +24,42 @@
     }
 
     var x = 0
-    var sentido = 1;
+
+    function disenharObjetivo(x,y){
+        disenharCircunferencia(100,100,radio+20,"red");
+        disenharCircunferencia(100,100,radio+10,"white");
+        disenharCircunferencia(100,100,radio,"red");
+    }
+    
+    function sortearPosicion(maximo){
+        return Math.floor(Math.random()*maximo);
+    }
+    
 
     function actualizarPantalla(){
 
         limpiarPantalla();
-        if(x > 600){
-            sentido = -1;
-        }else if(x < 0){
-            sentido = 1;
-        }
-
-        disenharCircunferencia(x,20,10);
-        x = x + sentido;
+        xaleatorio = sortearPosicion(600);
+        yaleatorio = sortearPosicion(400);
+        disenharObjetivo(xaleatorio,yaleatorio);
+        x++;
     }
 
-    setInterval(actualizarPantalla,100);
+    setInterval(actualizarPantalla,1000);
 
-</script> 
+    function disparar(evento){
+        var x=evento.pageX - pantalla.offsetLeft;
+        var y=evento.pageY - pantalla.offsetTop;
+
+        if ((x < xaleatorio + radio)&&
+            (x > xaleatorio - radio)&&
+            (y < yaleatorio + radio)&&
+            (y > yaleatorio - radio)) {
+            alert("Le diste");
+        }  
+    }
+
+    pantalla.onclick = disparar;
+    
+
+</script>  
