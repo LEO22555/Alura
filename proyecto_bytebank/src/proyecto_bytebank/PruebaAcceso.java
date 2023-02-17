@@ -4,7 +4,7 @@ public class PruebaAcceso {
 
 	public static void main(String[] args) {
 		Cuenta cuenta = new Cuenta();
-		Cuenta.setAgencia(22);
+		cuenta.setAgencia(-22);
 		cuenta.depositar(400);
 		cuenta.retirar(300);
 		

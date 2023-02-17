@@ -33,7 +33,7 @@ public class Cuenta {
 		return this.saldo;
 	}
 	
-	public void setAgencia(int nuevaAgencia) {
+	public void setAgencia(int agencia) {
 		if (agencia > 0) {
 			this.agencia = agencia;
 		} else {
@@ -41,6 +41,14 @@ public class Cuenta {
 		}
 	}
 	public int getAgencia() {
-		
+		return agencia;
+	}
+	
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+
+	public Cliente getTitular() {
+		return titular;
 	}
 }
