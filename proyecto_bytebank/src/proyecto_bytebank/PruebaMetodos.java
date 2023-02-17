@@ -10,7 +10,7 @@ public class PruebaMetodos {
 		
 		//metodo retirar
 		miCuenta.retirar(100);
-		System.out.println(miCuenta.saldo);	
+		System.out.println(miCuenta.getSaldo());	
 		
 		Cuenta cuentaDeJimena = new Cuenta();
 		cuentaDeJimena.depositar(1000);
