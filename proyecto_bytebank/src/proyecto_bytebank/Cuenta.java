@@ -4,7 +4,20 @@ public class Cuenta {
 	private double saldo;
 	private int agencia;
 	private int numero;
-	Cliente titular;
+	private Cliente titular = new Cliente();
+	
+	public static int total = 0;
+	
+	public Cuenta(int agencia) {
+		if (this.agencia <=0) {
+			System.out.println("No se permite 0");
+			this.agencia = 1;
+		} else {
+			this.agencia = agencia;
+		}
+		total++;
+		System.out.println("Se van creando: " + total + " cuentas");
+	}
 	
 	// No Retorna valor
 	public void depositar(double valor){
@@ -31,14 +44,6 @@ public class Cuenta {
 	}
 	public double getSaldo(){
 		return this.saldo;
-	}
-	
-	public void setAgencia(int agencia) {
-		if (agencia > 0) {
-			this.agencia = agencia;
-		} else {
-			System.out.println("No estan permitidos valores negativos");
-		}
 	}
 	public int getAgencia() {
 		return agencia;
