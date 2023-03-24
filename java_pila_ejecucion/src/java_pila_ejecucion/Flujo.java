@@ -11,7 +11,7 @@ public class Flujo {
 		System.out.println("Inicio metodo1");
 		try {
 			metodo2();
-		} catch (MiException me) {
+		} catch (Exception me) {
 			me.printStackTrace();
 		}
 		System.out.println("Fin metodo 1");
@@ -19,6 +19,9 @@ public class Flujo {
 	
 	private static void metodo2() throws MiException {
 		System.out.println("Inicio metodo2");
+		int a = 50/0; //Arithmetic Exception
+		Cuenta c = null; //NullPointerException
+		c.deposita();
 		throw new MiException("Mi excepcion fue lanzada");
 	}
 	{
